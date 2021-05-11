@@ -1,0 +1,32 @@
+.navbar {
+    width: 100%;
+    height: 67px;
+    background-color: #fff;
+}
+
+.grid-container {
+    display: grid;
+    padding: 17px 24px;
+    grid-template-columns: 45px auto;
+    grid-template-rows: auto;
+}
+
+.text > p {
+    font-size: 12px;
+}
+
+.logo img {
+    align-content: center;
+}
+
+@media only screen and (min-width: 450px) {
+    .grid-container{
+        padding: 17px 75px;
+    }
+}
+@media only screen and (min-width: 1000px) {
+    .grid-container{
+        padding: 17px 213px;
+    }
+}
+  

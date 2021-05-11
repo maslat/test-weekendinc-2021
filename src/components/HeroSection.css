@@ -1,0 +1,91 @@
+.hero {
+    position: relative;
+    width: auto;
+    height: 600px;
+    background-image: url(../images/bg-1.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    background-color: #eebece;
+    
+}
+
+.hero > h1 {
+    position: relative;
+    display: block;
+    top: 11%;
+    margin: 0 auto;
+    text-transform: uppercase;
+    width: 328px;
+    height: 102px;
+    font-size: 52px;
+    font-weight: 900;
+    color: white;
+    text-align: center;
+}
+
+.hero > h4 {
+    top: 17%;
+    position: relative;
+    color: white;
+    text-align: center;
+    font-style: italic;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.hero > img {
+    top: 20%;
+    position: relative;
+    display: block;
+    margin: 50px auto 20px;
+}
+
+.hero button {
+    box-shadow: 0 10px 50px 0px #d48ca4;
+    border-radius: 50px;
+    width: 231px;
+    height: 58px;
+    display: block;
+    border: none;
+    position: relative;
+    left: 20%;
+    font-size: 16px;
+    font-weight: 19px;
+    transition: 0.5s;
+}
+.hero button:hover {
+    background-color: #eeabc1;
+    opacity: 0.9;
+    cursor: pointer;
+    font-size: 24px;
+}
+
+@media only screen and (min-width: 376px) {
+    .hero {
+        height: 700px;
+    }
+    .hero h1{
+        width: 100%;
+    }
+    
+    .hero button{
+        left: 0%;
+        margin: 0 auto;
+    }
+}
+@media only screen and (min-width: 700px) {
+   .hero {
+       background-size: 100% 100%;
+
+   }
+    .hero h4{
+        top: 10%;
+    }
+
+}
+@media only screen and (min-width: 1360px) {
+   .hero {
+       background-size: 100% 100%;
+   }
+}

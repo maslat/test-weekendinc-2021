@@ -1,0 +1,52 @@
+.defsection{
+    position: relative;
+    width: auto;
+    height: 648px;
+    background-color: #eebece;
+}
+
+.defsection .lego-defsection{
+    position: absolute;
+    top: 0%;
+    right: 0%;
+}
+
+.defsection p {
+    position: relative;
+    top: 35%;
+    font-size: 16px; 
+    line-height: 1.6;
+    font-weight: 500;
+    text-align: right;
+    margin: 0 25px 20px;
+}
+
+.defsection p span {
+    color: blue;
+    font-weight: bold;
+}
+
+.quote {
+    color: white;
+}
+
+.defsection .circle {
+    position: absolute;
+    left: 13%;
+    bottom: 14%;
+}
+
+@media only screen and (min-width: 670px) {
+    .defsection {
+        height: 591px;
+    }
+    .defsection p {
+        margin: 0 150px;
+    }
+}
+@media only screen and (min-width: 900px) {
+    
+    .defsection p {
+        margin: 0 300px;
+    }
+}

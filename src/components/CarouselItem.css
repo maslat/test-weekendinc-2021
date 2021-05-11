@@ -1,0 +1,18 @@
+.carousel-item {
+    width: 247px;
+    height: 140px;
+    padding: 20px;
+    color: black;
+    background-color: white;
+    margin-left: 60px;
+}
+
+.carousel-item p {
+    width: 207px;
+    height: 42px;
+    margin: 20px 0 0;
+    font-size: 12px;
+    letter-spacing: -0.43px;
+    font-weight: 500;
+    color: black;
+}
