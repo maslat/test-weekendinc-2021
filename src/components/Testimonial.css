@@ -8,7 +8,7 @@
     
 }
 .testimonial h1{
-    margin-left: 30px;
+    margin-left: 32px;
     color: white;
 }
 
@@ -17,8 +17,26 @@
     height: 200px;
 }
 
-@media only screen and (min-width: 376px) {
+.react-multiple-carousel__arrow::before {
+    color: blue;
+}
+
+.react-multiple-carousel__arrow {
+    background: white;
+}
+.react-multiple-carousel__arrow:hover {
+    background: #888;
+    transform: scale(1.2);
+}
+
+@media only screen and (min-width: 600px) {
     .testimonial h1{
         text-align: center;
+        margin: 0;
+    }
+}
+@media only screen and (min-width: 1100px) {
+    .testimonial {
+        top: -12%;
     }
 }

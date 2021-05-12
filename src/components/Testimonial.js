@@ -1,7 +1,12 @@
-import React from "react";
-import "./Testimonial.css";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import Carousel from "react-multi-carousel";
+import PropagateLoader from 'react-spinners/PropagateLoader'
+import { css } from "@emotion/core";
+
 import "react-multi-carousel/lib/styles.css";
+import "./Testimonial.css";
+
 import CarouselItem from "./CarouselItem";
 
 const responsive = {
@@ -22,22 +27,46 @@ const responsive = {
   },
 };
 
+const override = css`
+  display: block;
+  margin: 75px auto;
+  size: 300px;
+  text-align: center;
+  `;
+
 const Testimonial = () => {
+  const [data, setData] = useState();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const result = await axios(
+        "https://wknd-take-home-challenge-api.herokuapp.com/testimonial"
+      );
+      setData(result.data);
+    };
+    fetchData();
+  }, []);
+
   return (
     <div className="testimonial">
       <h1>Testimonial</h1>
-      <Carousel
-        partialVisbile
+      {data ? <Carousel
         responsive={responsive}
         renderButtonGroupOutside={true}
         infinite={true}
-        containerClass='carousel-container'
+        containerClass="carousel-container"
+        
       >
-        <CarouselItem title='Blu Kicks' subtitle='Places where you can leverage tools and software to free up time to focus on growing the business.' />
-        <CarouselItem title='Angelus' subtitle='All those apps took me months to get running. Now the site practically runs itself!' />
-        <CarouselItem title='SoYoung' subtitle='Unless you have a truly unique product, it will be very hard to differentiate and gain brand traction' />
-        <CarouselItem title='Monti' subtitle='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.' />
-      </Carousel>
+        {data.map((item) => {
+            return (
+              <CarouselItem
+                key={item.id}
+                title={item.by}
+                subtitle={item.testimony}
+              />
+            );
+          })}
+      </Carousel> : <PropagateLoader color="blue" css={override}/> }
     </div>
   );
 };

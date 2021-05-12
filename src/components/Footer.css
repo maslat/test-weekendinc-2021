@@ -6,8 +6,6 @@ footer {
     width: auto;
     height: 67px;
     background-color: #0b24fb;
-    z-index: 20;
-    bottom: 100%;
     padding: 25px;
     font-size: 14px;
     color: white;
@@ -23,4 +21,15 @@ footer p {
 footer h5 span {
     font-size: 10px;
     font-weight: normal;
+}
+
+@media only screen and (min-width: 450px) {
+    footer{
+        padding: 17px 75px;
+    }
+}
+@media only screen and (min-width: 1000px) {
+    footer{
+        padding: 17px 213px;
+    }
 }

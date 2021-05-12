@@ -1,13 +1,37 @@
-import React from 'react'
+import React, {useState,useEffect} from 'react'
+import axios from 'axios'
+import PropagateLoader from 'react-spinners/PropagateLoader'
+import { css } from "@emotion/core";
+
 import './ContentSection.css'
+
 import Testimonial from './Testimonial';
-import legoImage from '../images/group-3.png'
 import Cards from './Cards';
-import card1 from '../images/image.png'
-import card2 from '../images/image_2.png'
-import card3 from '../images/image_3.png'
+
+import legoImage from '../images/group-3.png'
+
+// import card1 from '../images/image.png'
+// import card2 from '../images/image_2.png'
+// import card3 from '../images/image_3.png'
+const override = css`
+  display: block;
+  margin: 75px auto;
+  size: 300px;
+  text-align: center;
+  `;
 
 const ContentSection = () => {
+    const [data, setData] = useState();
+
+    useEffect(() => {
+        const fetchData = async () => {
+        const result = await axios(
+            "https://wknd-take-home-challenge-api.herokuapp.com/help-tips"
+        );
+        setData(result.data);
+        };
+        fetchData();
+    }, []);
     return (
         <section className='contents'>
             <Testimonial />
@@ -22,9 +46,14 @@ const ContentSection = () => {
             <div className="card-content">
                 <h1>Help &amp; Tips</h1>
                 <div className="card-container">
-                    <Cards image={card1} subtitle='Start quickly with simple steps' />
-                    <Cards image={card2} subtitle='Run smoothly at vero eos et accusamus' />
-                    <Cards image={card3} subtitle='Denounce with righteous indignation' />
+                    
+                    {
+                        data ? data.map(item => {
+                            return(
+                                <Cards key={item.id} image={item.image} subtitle={item.title} />
+                            )
+                        }) : <PropagateLoader color="#fff" css={override}/> 
+                    }
                 </div>
             </div>
             <div className="content">
